@@ -12,6 +12,9 @@
 
 ActiveRecord::Schema.define(version: 20170329021830) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "contracts", force: :cascade do |t|
     t.integer  "contract_id"
     t.integer  "market_id"
@@ -19,8 +22,8 @@ ActiveRecord::Schema.define(version: 20170329021830) do
     t.text     "date_end"
     t.datetime "created_at",    null: false
     t.datetime "updated_at",    null: false
-    t.index ["contract_id"], name: "index_contracts_on_contract_id"
-    t.index ["market_id"], name: "index_contracts_on_market_id"
+    t.index ["contract_id"], name: "index_contracts_on_contract_id", using: :btree
+    t.index ["market_id"], name: "index_contracts_on_market_id", using: :btree
   end
 
   create_table "markets", force: :cascade do |t|
@@ -28,7 +31,7 @@ ActiveRecord::Schema.define(version: 20170329021830) do
     t.text     "market_name"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
-    t.index ["market_id"], name: "index_markets_on_market_id"
+    t.index ["market_id"], name: "index_markets_on_market_id", using: :btree
   end
 
   create_table "tickers", force: :cascade do |t|
@@ -42,8 +45,8 @@ ActiveRecord::Schema.define(version: 20170329021830) do
     t.float    "last_traded_price"
     t.datetime "created_at",        null: false
     t.datetime "updated_at",        null: false
-    t.index ["contract_id"], name: "index_tickers_on_contract_id"
-    t.index ["ticker_at"], name: "index_tickers_on_ticker_at"
+    t.index ["contract_id"], name: "index_tickers_on_contract_id", using: :btree
+    t.index ["ticker_at"], name: "index_tickers_on_ticker_at", using: :btree
   end
 
 end
