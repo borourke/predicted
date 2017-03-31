@@ -3,7 +3,7 @@ market_update:
   class: "MarketUpdate"
   queue: market_updater
 
-ticket_update:
+ticker_update:
   cron: "* * * * *"
   class: "TickerUpdate"
   queue: ticker_updater
