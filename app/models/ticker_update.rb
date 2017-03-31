@@ -2,6 +2,7 @@ class TickerUpdate
   include Sidekiq::Worker
 
   def perform
+    Rails.logger.info("[TICKER UPDTAE] Starting Ticket Updater")
     current_time
     markets = PredictitApi.new.list_all_markets
     markets.each do |market|
