@@ -1,9 +1,9 @@
-my_first_job:
+market_update:
   cron: "0 * * * *"
-  class: "HardWorker"
+  class: "MarketUpdate"
   queue: market_updater
 
-second_job:
+ticket_update:
   cron: "* * * * *"
-  class: "HardWorker"
+  class: "TickerUpdate"
   queue: ticker_updater
