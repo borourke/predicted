@@ -4,7 +4,7 @@ Sidekiq.configure_client do |config|
 end
 # so one sidekiq can have 7 connections
 Sidekiq.configure_server do |config|
-  config.redis = { :size => 20 }
+  config.redis = { :size => 7 }
 end
 
 schedule_file = "config/schedule.yml"
