@@ -8,6 +8,8 @@ class TickerUpdate
     markets.each do |market|
       update_ticker(contracts: market["Contracts"])
     end
+    delete_old_ticker
+    TickerAnalyze.perform_async
   end
 
   private
@@ -25,6 +27,11 @@ class TickerUpdate
         last_traded_price: contract["LastTradePrice"]
       )
     end
+  end
+
+  def delete_old_ticker
+    old_time_threshold = current_time - 40.minutes
+    Ticker.where("ticker_at < ?", old_time_threshold).destroy_all
   end
 
   def current_time

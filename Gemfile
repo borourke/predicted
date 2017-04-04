@@ -16,6 +16,7 @@ gem 'faraday'
 gem "sidekiq-cron", "~> 0.4.0"
 gem 'sidekiq'
 gem 'aws-sdk', '~> 2'
+gem 'sendgrid-ruby'
 # Use Puma as the app server
 gem 'puma', '~> 3.0'
 # Use SCSS for stylesheets
