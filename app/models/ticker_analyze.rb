@@ -8,7 +8,7 @@ class TickerAnalyze
     markets.each do |market|
       market["Contracts"].each do |contract|
         action = Ticker.take_action(contract_id: contract["ID"])
-        send_email(action: action) #unless action[:action] == :none
+        send_email(action: action) unless action[:action] == :none
       end
     end
   end
